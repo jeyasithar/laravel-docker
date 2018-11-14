@@ -41,3 +41,5 @@ RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.n
 RUN yum install -y httpd-devel.x86_64 nano wget memcached git unzip
 
 RUN usermod -u 1000 apache && ln -sf /dev/stdout /var/log/httpd/access_log && ln -sf /dev/stderr /var/log/httpd/error_log
+
+COPY ./httpd.conf /etc/httpd/conf/httpd.conf
