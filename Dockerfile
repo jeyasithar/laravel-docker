@@ -1,10 +1,7 @@
 FROM  centos/httpd:latest
 
-# Author of this Dockerfile
-MAINTAINER Jeyasithar
-
 # Update & upgrades
-RUN yum update -y && yum upgrade -y
+RUN yum update -y && yum upgrade -y && yum clean all
 
 RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
     yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm && \
@@ -37,8 +34,11 @@ RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.n
     ln -s /etc/opt/remi/php72/pear.conf /etc/pear.conf && \
     ln -s /etc/opt/remi/php72/pear /etc/pear
 
-
 RUN yum install -y httpd-devel.x86_64 nano wget memcached git unzip
+
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+
+RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 
 RUN usermod -u 1000 apache && ln -sf /dev/stdout /var/log/httpd/access_log && ln -sf /dev/stderr /var/log/httpd/error_log
 
