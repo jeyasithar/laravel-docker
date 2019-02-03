@@ -24,7 +24,7 @@ RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.n
     php72-php-ldap.x86_64 \
     php72-php-pdo.x86_64 \
     php72-php-pear.noarch \
-    php72-php-gmp.noarch \
+    php72-php-gmp.x86_64 \
     php72-php-xml.x86_64 \
     php72-php-ast.x86_64 \
     php72-php-opcache.x86_64 \
