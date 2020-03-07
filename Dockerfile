@@ -45,3 +45,7 @@ RUN php composer-setup.php --install-dir=/usr/local/bin --filename=composer
 RUN usermod -u 1000 apache && ln -sf /dev/stdout /var/log/httpd/access_log && ln -sf /dev/stderr /var/log/httpd/error_log
 
 COPY ./httpd.conf /etc/httpd/conf/httpd.conf
+
+COPY ./start.sh /usr/local/bin/start
+
+CMD ["/usr/local/bin/start"]
