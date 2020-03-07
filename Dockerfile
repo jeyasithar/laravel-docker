@@ -48,4 +48,6 @@ COPY ./httpd.conf /etc/httpd/conf/httpd.conf
 
 COPY ./start.sh /usr/local/bin/start
 
+RUN chmod u+x /usr/local/bin/start
+
 CMD ["/usr/local/bin/start"]

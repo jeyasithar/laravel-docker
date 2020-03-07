@@ -4,3 +4,5 @@ services:
   laravel:
     build: .
     image: talpeo/laravel:centos
+    volumes:
+      - /Users/jeyasithar/eclipse-workspace/timflo/api:/var/www/html
