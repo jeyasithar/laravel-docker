@@ -3,7 +3,7 @@
 set -e
 
 role=${CONTAINER_ROLE:-app}
-env=${APP_ENV:-production}
+env=${APP_ENV:-local}
 
 if [ "$env" != "local" ]; then
     echo "Caching configuration..."
